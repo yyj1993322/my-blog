@@ -1,15 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
-import LottieAnimation from "@/utils/LottieAnimation";
-import { getPostsList } from "@/utils/PostsData";
+import LottieAnimation from "components/LottieAnimation";
+import { getPostsList } from "components/PostsData";
+// import PostsPage from "@/utils/BlogCard";
 import SearchInput from "@/posts/Input";
-import ThemeSwitcher from "@/utils/ThemeSwitcher";
+import ThemeSwitcher from "components/ThemeSwitcher";
 import Link from "next/link";
-
 
 export default async function HomeDemo() {
   const posts = await getPostsList();
-  
+
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <Head>
@@ -23,8 +23,8 @@ export default async function HomeDemo() {
           <div className="flex items-center">
             <Image src="/coding.png" alt="coding" width={60} height={60} />
             <h1 className="text-2xl font-bold ml-4">Joker Blog</h1>
-            <SearchInput/>
-            <ThemeSwitcher/>
+            <SearchInput />
+            <ThemeSwitcher />
           </div>
           <nav>
             <ul className="flex space-x-4">
@@ -92,8 +92,8 @@ export default async function HomeDemo() {
             我是一个看清楚现实逃跑的了的韭菜。
           </p>
           <div className="max-h-[400px] overflow-y-auto">
-          <LottieAnimation />
-          <LottieAnimation />
+            <LottieAnimation />
+            <LottieAnimation />
           </div>
         </aside>
       </main>
