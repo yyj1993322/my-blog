@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import LottieAnimation from "components/LottieAnimation";
+import LottieCat from "components/LottieAnimation";
 import { getPostsList } from "components/PostsData";
 // import PostsPage from "@/utils/BlogCard";
-import SearchInput from "@/posts/Input";
+import SearchInput from "components/Input";
 import ThemeSwitcher from "components/ThemeSwitcher";
 import Link from "next/link";
 
@@ -86,14 +86,13 @@ export default async function HomeDemo() {
         </div>
 
         {/* 3.2️⃣ 侧边栏 */}
-        <aside className="bg-white dark:bg-gray-800 p-4 shadow rounded-lg">
+        <aside className="defalutBgText dark:bg-gray-800 p-4 shadow rounded-lg">
           <h3 className="text-xl font-semibold">关于我</h3>
           <p className="text-gray-600 dark:text-gray-300 mt-2">
             我是一个看清楚现实逃跑的了的韭菜。
           </p>
-          <div className="max-h-[400px] overflow-y-auto">
-            <LottieAnimation />
-            <LottieAnimation />
+          <div className="h-[300px] w-[300px] overflow-y-auto">
+            <LottieCat />
           </div>
         </aside>
       </main>
