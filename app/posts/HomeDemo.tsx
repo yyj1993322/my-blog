@@ -22,7 +22,6 @@ export default async function HomeDemo() {
         <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
           <div className="flex items-center">
             <Image src="/coding.png" alt="coding" width={60} height={60} />
-            <h1 className="text-2xl font-bold ml-4">Joker Blog</h1>
             <SearchPosts />
             <ThemeSwitcher />
           </div>
@@ -35,7 +34,7 @@ export default async function HomeDemo() {
                   rel="noopener noreferrer"
                   className="hover:text-blue-500"
                 >
-                  github热门趋势
+                  github热门
                 </Link>
               </li>
               <li>
@@ -55,7 +54,7 @@ export default async function HomeDemo() {
 
       {/* 2️⃣ 封面 */}
       <section className="relative bg-blue-500 text-white text-center py-12">
-        <h2 className="text-4xl font-bold">欢迎来到我的博客</h2>
+        <h2 className="text-4xl font-bold">欢迎来到 Joker Blog</h2>
         <p className="mt-4 text-lg">技术-生活-分享</p>
       </section>
 
