@@ -56,6 +56,44 @@ Next.js 主要解决了 React 在实际开发中的以下问题：
 
 总结来说，Next.js 让 React 开发变得更加高效，适用于需要 SEO、快速首屏加载、和后端交互的项目，比如博客、电商网站等。
 
+|功能	|Next.js 负责|
+|------|---------------|
+|前端 UI	|使用 React 组件渲染|
+|前端 SEO	|服务器渲染（SSR）或静态生成（SSG）|
+|后端 API	|提供 /api/xxx 处理数据|
+|连接数据库	|直接查询数据库（PostgreSQL / MySQL / MongoDB）|
+|身份验证	|next-auth 处理用户登录|
+|文件存储	|读取本地 Markdown 或数据库|
+
+```plaintext
+my-nextjs-app/      # 🌟 Next.js 根目录
+│── app/            # 🌟 Next.js App Router（前端页面）
+│   ├── layout.tsx  # 🌟 全局布局（可用于 ThemeProvider）
+│   ├── page.tsx    # 🌟 主页 `/`
+│   ├── posts/      # 🌟 博客页面
+│   │   ├── page.tsx      # 文章列表 `/posts`
+│   │   ├── [slug]/       # 文章详情（动态路由）
+│   │   │   ├── page.tsx  # `/posts/:slug`
+│── api/            # 🌟 后端 API 路由（Next.js API 服务器）
+│   ├── posts/      # 文章 API `/api/posts`
+│   │   ├── route.ts      # `GET` 获取文章列表
+│   ├── auth/       # 认证 API `/api/auth`
+│   │   ├── route.ts      # 处理登录、登出
+│── components/     # 🌟 复用 UI 组件（Navbar、按钮等）
+│   ├── Navbar.tsx       # 导航栏组件
+│   ├── PostCard.tsx     # 文章卡片组件
+│── prisma/         # 🌟 Prisma ORM（数据库配置）
+│   ├── schema.prisma    # 数据库模型
+│── public/         # 静态文件（图片、logo 等）
+│── styles/         # 全局 CSS / Tailwind 配置
+│── utils/          # 🌟 通用工具函数
+│   ├── db.ts       # 数据库连接
+│   ├── auth.ts     # 认证工具（JWT 解析）
+│── next.config.js  # Next.js 配置
+│── package.json    # 依赖管理
+│── .env.local      # 环境变量（数据库连接等）
+```
+
 # Next.js 能否使用 Vue？
 不可以，Next.js **只能用于 React**，它基于 React 生态构建，所有组件、数据管理、路由等都依赖 React。
 
