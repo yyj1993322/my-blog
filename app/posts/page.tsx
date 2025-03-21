@@ -24,7 +24,7 @@ export default function PostsPage() {
 
   // 📌 获取文章列表
   async function fetchPosts(page: number) {
-    const res = await fetch(`/api/posts?page=${page}&pageSize=5`);
+    const res = await fetch(`/api/posts?page=${page}&pageSize=15`);
     const data: PostsResponse = await res.json();
 
     setPosts(data.posts);
@@ -38,34 +38,38 @@ export default function PostsPage() {
   }, []);
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold">博客文章</h1>
-      <ul className="mt-4 space-y-2">
+    <div className="p-8 w-full h-full mdTheme">
+      <h1 className="max-w-3xl mx-auto p-6">全部文章</h1>
+      <ul>
         {posts.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/posts/${post.slug}`} className="text-blue-500 hover:underline">
-              {post.title}
+          <li key={post.slug} className="mb-4">
+            <Link
+              href={`/posts/${post.slug}`}
+              className="text-blue-500 hover:underline"
+            >
+              {post.title} - {post.date}
             </Link>
-            <p className="text-gray-500 text-sm">{post.date}</p>
           </li>
         ))}
       </ul>
 
       {/* 📌 分页 */}
-      <div className="mt-4 flex space-x-4">
+      <div className="mt-4 flex space-x-4 mdTheme">
         {currentPage > 1 && (
           <button
             onClick={() => fetchPosts(currentPage - 1)}
-            className="bg-gray-200 px-4 py-2 rounded"
+            className="mdTheme px-4 py-2 rounded"
           >
             上一页
           </button>
         )}
-        <span>第 {currentPage} 页 / 共 {totalPages} 页</span>
+        <span>
+          第 {currentPage} 页 / 共 {totalPages} 页
+        </span>
         {currentPage < totalPages && (
           <button
             onClick={() => fetchPosts(currentPage + 1)}
-            className="bg-gray-200 px-4 py-2 rounded"
+            className="mdTheme px-4 py-2 rounded"
           >
             下一页
           </button>

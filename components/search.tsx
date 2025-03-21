@@ -72,7 +72,7 @@ export default function SearchPosts() {
                   </button>
                 </li>
               ))
-            : query && <p className="text-gray-500 px-2 py-1">未找到相关文章</p>}
+            : query && <p className="text-gray-500 px-2 py-1">No result</p>}
         </ul>
       )}
     </div>
