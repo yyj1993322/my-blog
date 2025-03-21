@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 interface Post {
   slug: string;
@@ -12,6 +13,7 @@ export default function SearchPosts() {
   const [isVisible, setIsVisible] = useState(false);
   const [query, setQuery] = useState("");
   const [posts, setPosts] = useState<Post[]>([]);
+  const router = useRouter();
 
   // 📌 监听搜索框输入，动态获取搜索结果
   useEffect(() => {
@@ -33,6 +35,11 @@ export default function SearchPosts() {
     return () => clearTimeout(delayDebounce);
   }, [query]);
 
+  //onMouseDown 解决下拉框消失导致没有跳转文章
+  const handleClick = (slug: string) => {
+    router.push(`/posts/${slug}`);
+  };
+
   return (
     <div className="mx-2 defalutBgText">
       <input
@@ -44,6 +51,7 @@ export default function SearchPosts() {
         }}
         onBlur={() => {
           setIsVisible(false);
+
         }}
         onChange={(e) => setQuery(e.target.value)}
       />
@@ -56,12 +64,12 @@ export default function SearchPosts() {
           {posts.length > 0
             ? posts.map((post) => (
                 <li key={post.slug} className="px-2 py-1">
-                  <Link
-                    href={`/posts/${post.slug}`}
+                  <button
                     className="text-blue-500 hover:underline"
+                    onMouseDown={() => handleClick(post.slug)}
                   >
                     {post.title}
-                  </Link>
+                  </button>
                 </li>
               ))
             : query && <p className="text-gray-500 px-2 py-1">未找到相关文章</p>}
