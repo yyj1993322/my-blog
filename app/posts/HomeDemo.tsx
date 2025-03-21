@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import LottieCat from "components/LottieAnimation";
+import LottieCat,{ NextAnimation } from "components/LottieAnimation";
 import { getPostsList } from "components/PostsData";
 // import PostsPage from "@/utils/BlogCard";
-import SearchInput from "components/Input";
+import SearchPosts from "components/search";
 import ThemeSwitcher from "components/ThemeSwitcher";
 import Link from "next/link";
 
@@ -23,7 +23,7 @@ export default async function HomeDemo() {
           <div className="flex items-center">
             <Image src="/coding.png" alt="coding" width={60} height={60} />
             <h1 className="text-2xl font-bold ml-4">Joker Blog</h1>
-            <SearchInput />
+            <SearchPosts />
             <ThemeSwitcher />
           </div>
           <nav>
@@ -93,6 +93,7 @@ export default async function HomeDemo() {
           </p>
           <div className="h-[300px] w-[300px] overflow-y-auto">
             <LottieCat />
+            <NextAnimation/>
           </div>
         </aside>
       </main>
