@@ -1,13 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import axiosInstance from "./AxiosInstance";
+import {Post,PostsRes} from "../type/posts"
 
 
-interface Post {
-  slug: string;
-  title: string;
-  date: string;
-}
 
 export default function SearchPosts() {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,14 +19,15 @@ export default function SearchPosts() {
       return;
     }
 
-    async function fetchSearchResults() {
-      const res = await fetch(`/api/search?q=${query}`);
-      const data = await res.json();
-      setPosts(data.posts);
+    async function SearchResults() {
+      const res = await axiosInstance.get<PostsRes>(`/search`, {
+        params: { q: query }
+      });
+      setPosts(res.data.posts);
     }
 
     const delayDebounce = setTimeout(() => {
-      fetchSearchResults();
+      SearchResults();
     }, 300); // 延迟 300ms，防止每次输入都请求 API
 
     return () => clearTimeout(delayDebounce);

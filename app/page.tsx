@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import LottieCat,{ NextAnimation } from "components/LottieAnimation";
 import { getPostsList } from "components/PostsData";
-import SearchPosts from "components/search";
+import SearchPosts from "components/Search";
 import ThemeSwitcher from "components/ThemeSwitcher";
 import Link from "next/link";
 
@@ -41,11 +41,6 @@ export default async function HomePage() {
                   全部文章
                 </Link>
               </li>
-              {/* <li>
-                <a href="" className="hover:text-blue-500">
-                  关于
-                </a>
-              </li> */}
             </ul>
           </nav>
         </div>

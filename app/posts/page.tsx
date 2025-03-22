@@ -2,20 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-// 📌 文章接口
-interface Post {
-  slug: string;
-  title: string;
-  date: string;
-}
-
-// 📌 API 响应数据
-interface PostsResponse {
-  posts: Post[];
-  totalPages: number;
-  currentPage: number;
-}
+import {Post,PostsPageRes} from "../../type/posts"
 
 export default function PostsPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -25,7 +12,7 @@ export default function PostsPage() {
   // 📌 获取文章列表
   async function fetchPosts(page: number) {
     const res = await fetch(`/api/posts?page=${page}&pageSize=15`);
-    const data: PostsResponse = await res.json();
+    const data: PostsPageRes = await res.json();
 
     setPosts(data.posts);
     setCurrentPage(data.currentPage);
