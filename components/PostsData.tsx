@@ -1,12 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-
-interface Post {
-    slug: string;
-    title: string;
-    date: string;
-  }
+import {Post} from "../type/posts"
 
 export async function getPostsList():Promise<Post[]> {
       // 1. 读取 `posts/` 目录

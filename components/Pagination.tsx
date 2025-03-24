@@ -1,45 +1,60 @@
 "use client";
+import React from 'react';
+import {PaginationProps} from '../type/posts'
 
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}
+const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+    return (
+        <div className="mt-2 flex space-x-4 mdTheme justify-center mx-auto">
+            {/* 首页按钮 */}
+            <button
+                onClick={() => onPageChange(1)}
+                disabled={currentPage === 1}
+                className={`mdTheme py-2 rounded ${
+                    currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''
+                }`}
+            >
+                {"<<"}
+            </button>
 
-export default function Pagination({
-  currentPage,
-  totalPages,
-  onPageChange,
-}: PaginationProps) {
-  const handlePrevious = () => {
-    if (currentPage > 1) {
-      onPageChange(currentPage - 1);
-    }
-  };
+            {/* 上一页按钮 */}
+            <button
+                onClick={() => onPageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className={`mdTheme py-2 rounded ${
+                    currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''
+                }`}
+            >
+                {"<"}
+            </button>
 
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      onPageChange(currentPage + 1);
-    }
-  };
+            {/* 当前页信息 */}
+            <span className="mdTheme py-2">
+                第 {currentPage} 页 / 共 {totalPages} 页
+            </span>
 
-  return (
-    <div className="flex items-center justify-center mt-4 space-x-2">
-      <button
-        className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
-        onClick={handlePrevious}
-        disabled={currentPage === 1}
-      >
-        上一页
-      </button>
-      <span className="px-3">{`第 ${currentPage} 页 / 共 ${totalPages} 页`}</span>
-      <button
-        className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400"
-        onClick={handleNext}
-        disabled={currentPage === totalPages}
-      >
-        下一页
-      </button>
-    </div>
-  );
-}
+            {/* 下一页按钮 */}
+            <button
+                onClick={() => onPageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className={`mdTheme py-2 rounded ${
+                    currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''
+                }`}
+            >
+                {">"}
+            </button>
+
+            {/* 尾页按钮 */}
+            <button
+                onClick={() => onPageChange(totalPages)}
+                disabled={currentPage === totalPages}
+                className={`mdTheme py-2 rounded ${
+                    currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''
+                }`}
+            >
+                {">>"}
+            </button>
+        </div>
+    );
+};
+
+export default Pagination;
