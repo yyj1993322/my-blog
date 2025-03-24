@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Post, PostsPageRes } from "../../type/posts";
-import Pagination from "../../components/Pagination";
+import { Post, PostsPageRes } from "@type/posts";
+import Pagination from "@components/Pagination";
 
 export default function PostsPage() {
   const [posts, setPosts] = useState<Post[]>([]);

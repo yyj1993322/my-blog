@@ -2,7 +2,7 @@ import React from 'react';
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import MarkdownRenderer from "../../../components/MarkdownRenderer"
+import MarkdownRenderer from "@components/MarkdownRenderer"
 
 
 // 📌 读取 Markdown 文件

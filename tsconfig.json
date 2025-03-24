@@ -20,7 +20,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/*"]
+      "@/*": ["app/*"],
+      "@components/*":["components/*"],
+      "@type/*":["type/*"],
+      "@public/*":["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/index.js", "app/pages/index.jsx", "app/posts/[slug]/page.jsx"],

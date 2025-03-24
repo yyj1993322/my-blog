@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import axiosInstance from "./AxiosInstance";
-import {Post,PostsRes} from "../type/posts"
+import axiosInstance from "@components/AxiosInstance";
+import {Post,PostsRes} from "@type/posts"
 
 
 
