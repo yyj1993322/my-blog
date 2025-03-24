@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Post, PostsPageRes } from "@type/posts";
 import Pagination from "@components/Pagination";
+import axiosInstance from "@components/AxiosInstance";
 
 export default function PostsPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -13,17 +14,28 @@ export default function PostsPage() {
 
   // 获取文章列表
   async function fetchPosts(page: number) {
-    const res = await fetch(`/api/posts?page=${page}&pageSize=${pageSize}`);
-    const data: PostsPageRes = await res.json();
+    const {
+      data: { posts, currentPage, totalPages },
+    } = await axiosInstance.get<PostsPageRes>(`/posts`, {
+      params: { page: page, pageSize: pageSize },
+    });
 
-    setPosts(data.posts);
-    setCurrentPage(data.currentPage);
-    setTotalPages(data.totalPages);
+    setPosts(posts);
+    setCurrentPage(currentPage);
+    setTotalPages(totalPages);
+    // 存储当前页码到 SessionStorage
+    sessionStorage.setItem("currentPage", String(page));
   }
 
   // 在组件加载时获取文章
   useEffect(() => {
-    fetchPosts(1);
+    let page = 1;
+    // 判断是否是返回操作
+    if (document.referrer && sessionStorage.getItem("currentPage")) {
+      page = parseInt(sessionStorage.getItem("currentPage") || "1");
+    }
+    setCurrentPage(page);
+    fetchPosts(page);
   }, []);
 
   return (
