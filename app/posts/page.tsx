@@ -41,7 +41,9 @@ export default function PostsPage() {
 
   return (
     <div className="flex flex-col h-screen p-8 w-full mdTheme">
-      <div className="relative mb-4"><SearchPosts /></div>
+      <div className="relative mb-4 flex items-center space-x-2">
+        <SearchPosts />
+      </div>
       <div className="md:col-span-2 flex-1 overflow-y-auto space-y-4">
         {/* 文章卡片 */}
         {posts.reverse().map((post) => (
@@ -49,7 +51,7 @@ export default function PostsPage() {
             key={post.slug}
             className="bg-white dark:bg-gray-800 p-4 shadow rounded-lg relative"
           >
-            <h4 className="text-1xl font-semibold "> {post.title} --- {post.date} </h4>
+            <h4 className="text-1xl font-semibold "> {post.title}</h4>
             <div className="right-4 top-1/2 transform -translate-y-1/2 absolute">
               <Link
                 href={`/posts/${post.slug}`}

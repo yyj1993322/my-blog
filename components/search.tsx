@@ -2,9 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axiosInstance from "@components/AxiosInstance";
-import {Post,PostsRes} from "@type/posts"
-
-
+import { Post, PostsRes } from "@type/posts";
 
 export default function SearchPosts() {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +19,7 @@ export default function SearchPosts() {
 
     async function SearchResults() {
       const res = await axiosInstance.get<PostsRes>(`/search`, {
-        params: { q: query }
+        params: { q: query },
       });
       setPosts(res.data.posts);
     }
@@ -39,20 +37,42 @@ export default function SearchPosts() {
   };
 
   return (
-    <div className="mx-2 defalutBgText">
-      <input
-        className="defalutBgText px-2 h-8 w-52 focus:outline-none relative"
-        type="search"
-        placeholder="search blog"
-        onFocus={() => {
-          setIsVisible(true);
-        }}
-        onBlur={() => {
-          setIsVisible(false);
-
-        }}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+    <div className="mx-2 defalutBgText rounded">
+      {/* 搜索框容器 */}
+      <div className="relative">
+        {/* 搜索图标 */}
+        {
+          isVisible && (
+            <div className="absolute inset-y-0 left-0 flex items-center pl-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 text-gray-500"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M11 4a7 7 0 017 7c0 1.657-.422 3.214-1.206 4.577l4.58 4.579a1 1 0 01-1.414 1.415l-4.579-4.58A7 7 0 1111 4z"
+              />
+            </svg>
+          </div>
+          )
+        }
+        {/* 搜索框 */}
+        <input
+          className={`rounded defalutBgText h-8 w-52 focus:outline-none transition-all duration-300 ${
+            isVisible ? "pl-8" : "pl-2"
+          }`}
+          type="search"
+          placeholder="search blog"
+          onFocus={() => setIsVisible(true)}
+          onBlur={() => setIsVisible(false)}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
       {isVisible && (
         <ul
           className={
