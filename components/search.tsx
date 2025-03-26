@@ -12,7 +12,7 @@ export default function SearchPosts() {
   const [posts, setPosts] = useState<Post[]>([]);
   const router = useRouter();
 
-  // 📌 监听搜索框输入，动态获取搜索结果
+  // 监听搜索框输入，动态获取搜索结果
   useEffect(() => {
     if (query.trim() === "") {
       setPosts([]);

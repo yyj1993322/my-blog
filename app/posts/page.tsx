@@ -5,12 +5,13 @@ import Link from "next/link";
 import { Post, PostsPageRes } from "@type/posts";
 import Pagination from "@components/Pagination";
 import axiosInstance from "@components/AxiosInstance";
+import SearchPosts from "@components/Search";
 
 export default function PostsPage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const pageSize = 5;
+  const pageSize = 15;
 
   // 获取文章列表
   async function fetchPosts(page: number) {
@@ -39,16 +40,16 @@ export default function PostsPage() {
   }, []);
 
   return (
-    <div className="p-8 w-full mdTheme">
-      <div className="md:col-span-2 space-y-6 max-h-[800px] overflow-y-auto">
+    <div className="flex flex-col h-screen p-8 w-full mdTheme">
+      <div className="relative mb-4"><SearchPosts /></div>
+      <div className="md:col-span-2 flex-1 overflow-y-auto space-y-4">
         {/* 文章卡片 */}
         {posts.reverse().map((post) => (
           <article
             key={post.slug}
             className="bg-white dark:bg-gray-800 p-4 shadow rounded-lg relative"
           >
-            <h4 className="text-1xl font-semibold "> {post.title}</h4>
-            <p className="text-gray-600 dark:text-gray-300 my-1">{post.date}</p>
+            <h4 className="text-1xl font-semibold "> {post.title} --- {post.date} </h4>
             <div className="right-4 top-1/2 transform -translate-y-1/2 absolute">
               <Link
                 href={`/posts/${post.slug}`}
