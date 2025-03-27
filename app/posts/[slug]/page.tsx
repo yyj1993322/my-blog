@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import MarkdownRenderer from "@components/MarkdownRenderer"
-
+import MarkdownRenderer from "@components/MarkdownRenderer";
 
 // 📌 读取 Markdown 文件
 async function getPost(slug: string) {
@@ -20,7 +19,7 @@ async function getPost(slug: string) {
       content,
     };
   } catch (error) {
-    console.log("getPost---"+error)
+    console.log("getPost---" + error);
   }
 }
 
@@ -51,18 +50,21 @@ interface Post {
 export default async function PostPage({ params }: PageProps) {
   const resolvedParams = await params;
   const { slug } = resolvedParams;
-  const post = await getPost(slug) as Post;
+  const post = (await getPost(slug)) as Post;
 
   if (!post) {
     return <h1 className="text-center text-4xl mt-10">404 - Post Not Found</h1>;
   }
-  
 
   return (
-    <div className="w-full min-h-screen flex mdTheme">
-      <div className="p-10 w-full max-w-screen-xl mx-auto flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold text-center">{post.title}</h1>
-        <MarkdownRenderer content={post.content ?? "" }/>
+    <div className="w-full max-w-full min-h-screen flex mdTheme p-2 sm:p-4">
+      <div className="p-4 sm:p-10 w-full max-w-screen-xl mx-auto flex flex-col justify-center items-center">
+        <h4 className="text-base sm:text-4xl font-bold text-center mb-4 sm:mb-6">
+          {post.title}
+        </h4>
+        <div className="w-full max-w-full p-2 sm:p-4 rounded-lg shadow-md">
+          <MarkdownRenderer content={post.content ?? ""} />
+        </div>
       </div>
     </div>
   );
