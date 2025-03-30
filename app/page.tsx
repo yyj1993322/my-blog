@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
-import LottieCat, { NextAnimation } from "components/LottieAnimation";
+import LottieAnim from "components/LottieAnimation";
 import { getPostsList } from "components/PostsData";
 import SearchPosts from "components/Search";
 import ThemeSwitcher from "components/ThemeSwitcher";
 import Link from "next/link";
+import catAnimation from "@public/nextAnimation.json"; // 导入 JSON 动画
 
 export default async function HomePage() {
   const posts = await getPostsList();
@@ -85,8 +86,8 @@ export default async function HomePage() {
           </p>
           <div className="h-60 w-full overflow-y-auto flex justify-center items-center">
             <div className="flex justify-center items-center">
-              <LottieCat />
-              <NextAnimation />
+              <LottieAnim/>
+              <LottieAnim jsonData={catAnimation}/>
             </div>
           </div>
         </aside>

@@ -14,6 +14,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   (config) => {
     // 可以在这里添加请求头，例如 token
+    // config.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     return config;
   },
   (error) => {
