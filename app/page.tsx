@@ -5,7 +5,7 @@ import { getPostsList } from "components/PostsData";
 import SearchPosts from "components/Search";
 import ThemeSwitcher from "components/ThemeSwitcher";
 import Link from "next/link";
-import catAnimation from "@public/nextAnimation.json"; // 导入 JSON 动画
+import catAnimation from "@public/lottie/nextAnimation.json"; // 导入 JSON 动画
 
 export default async function HomePage() {
   const posts = await getPostsList();

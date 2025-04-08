@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 
 // import Lottie from "lottie-react";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
-import catAnimation from "@public/CatAnimation.json"; // 导入 JSON 动画
+import catAnimation from "@public/lottie/CatAnimation.json"; // 导入 JSON 动画
 
 // 通用动画组件
 export default function LottieAnim({
