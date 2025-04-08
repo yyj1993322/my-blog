@@ -21,13 +21,7 @@ export default async function HomePage() {
       <header className="bg-gray-100 dark:bg-gray-900 shadow-md ">
         <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center p-4 space-y-2 sm:space-y-0">
           <div className="flex items-center space-x-2">
-            <Image
-              src="/coding.png"
-              alt="coding"
-              width={50}
-              height={50}
-              className="w-10 h-10 sm:w-12 sm:h-12"
-            />
+            <Image src="/coding.png" alt="coding" width={50} height={50} className="w-10 h-10 sm:w-12 sm:h-12" />
             <SearchPosts />
             <ThemeSwitcher />
           </div>
@@ -44,10 +38,7 @@ export default async function HomePage() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/posts"
-                  className="hover:text-blue-500 text-sm sm:text-base"
-                >
+                <Link href="/posts" className="hover:text-blue-500 text-sm sm:text-base">
                   全部文章
                 </Link>
               </li>
@@ -73,12 +64,8 @@ export default async function HomePage() {
               className="bg-gray-200 dark:bg-gray-800 p-4 shadow rounded-lg relative"
             >
               <h5 className="text-sm sm:text-base break-words">{post.title}</h5>
-              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                {post.date}
-              </p>
-              <p className="text-gray-600 dark:text-gray-300 right-4 top-2 absolute text-xs">
-                NEW
-              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">{post.date}</p>
+              <p className="text-gray-600 dark:text-gray-300 right-4 top-2 absolute text-xs">NEW</p>
               <div className="right-4 bottom-2 absolute">
                 <Link
                   href={`/posts/${post.slug}`}
@@ -98,8 +85,10 @@ export default async function HomePage() {
             一个看清楚现实跑路了的韭菜。
           </p>
           <div className="h-60 w-full overflow-y-auto flex justify-center items-center">
-            {/* <LottieAnim /> */}
-            <LottieAnim jsonData={catAnimation} />
+            <div className="flex justify-center items-center">
+              <LottieAnim/>
+              <LottieAnim jsonData={catAnimation}/>
+            </div>
           </div>
         </aside>
       </main>
