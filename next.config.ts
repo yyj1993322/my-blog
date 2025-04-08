@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
 const securityHeaders = [
-  {
-    key: 'Content-Security-Policy',
-    value:
-      "default-src 'self'; script-src 'self' https://unpkg.com https://*.lottiefiles.com; style-src 'self' 'unsafe-inline'; img-src * data: blob:; font-src 'self'; connect-src *;",
-  },
+  // {
+  //   key: 'Content-Security-Policy',
+  //   value:
+  //     "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://*.lottiefiles.com; style-src 'self' 'unsafe-inline'; img-src * data: blob:; font-src *; connect-src *;",
+  // },
   {
     key: 'X-Content-Type-Options',
     value: 'nosniff',
@@ -26,7 +26,6 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
 
   async headers() {
     return [
