@@ -37,7 +37,7 @@ export default function SearchPosts() {
   };
 
   return (
-    <div className="mx-2 defalutBgText rounded">
+    <div className="mx-2 rounded">
       {/* 搜索框容器 */}
       <div className="relative">
         {/* 搜索图标 */}
@@ -63,7 +63,7 @@ export default function SearchPosts() {
         }
         {/* 搜索框 */}
         <input
-          className={`rounded defalutBgText h-8 w-52 focus:outline-none transition-all duration-300 ${
+          className={`rounded defalutConpomentText h-8 w-52 focus:outline-none transition-all duration-300 ${
             isVisible ? "pl-8" : "pl-2"
           }`}
           type="search"
@@ -76,7 +76,7 @@ export default function SearchPosts() {
       {isVisible && (
         <ul
           className={
-            "defalutBgText absolute w-52 z-50 overflow-y-auto scrollbar-hide"
+            "defalutConpomentText absolute w-52 z-50 overflow-y-auto scrollbar-hide"
           }
         >
           {posts.length > 0

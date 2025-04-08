@@ -18,7 +18,7 @@ export default async function HomePage() {
       </Head>
 
       {/* 1️⃣ 顶部导航栏 */}
-      <header className="bg-gray-100 dark:bg-gray-800 shadow-md ">
+      <header className="bg-gray-100 dark:bg-gray-900 shadow-md ">
         <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center p-4 space-y-2 sm:space-y-0">
           <div className="flex items-center space-x-2">
             <Image src="/coding.png" alt="coding" width={50} height={50} className="w-10 h-10 sm:w-12 sm:h-12" />
