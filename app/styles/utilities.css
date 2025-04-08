@@ -1,0 +1,36 @@
+@tailwind utilities;
+
+/* Markdown 渲染样式 */
+.prose {
+  max-width: 100%; /* 防止 Markdown 自动限制内容宽度 */
+}
+
+.prose pre {
+  @apply bg-gray-300 text-white p-4 rounded-md overflow-x-auto;
+}
+
+.prose code {
+  @apply bg-gray-300 text-black px-1 py-0.5 rounded;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-gray-500 pl-4 italic text-gray-600;
+}
+
+/* Markdown 自定义类 */
+.mdText {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+.mdTable {
+  @apply border-collapse border border-gray-900 dark:border-gray-100 text-center;
+}
+
+/* 主题配色样式 */
+.mdTheme {
+  @apply bg-green-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+}
+
+.defalutBgText {
+  @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+}

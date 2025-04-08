@@ -1,0 +1,27 @@
+@tailwind base;
+
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #1f2937;
+}
+
+/* 隐藏滚动条样式 */
+.scrollbar-hide,
+div {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE & Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
