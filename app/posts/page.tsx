@@ -49,7 +49,7 @@ export default function PostsPage() {
         {posts.reverse().map((post) => (
           <article
             key={post.slug}
-            className="bg-white dark:bg-gray-800 p-4 shadow rounded-lg relative"
+            className="bg-gray-100 dark:bg-gray-800 p-4 shadow rounded-lg relative"
           >
             <div className="flex justify-between items-center">
               <h4 className="text-base sm:text-ml break-words max-w-[80%]">

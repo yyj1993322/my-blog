@@ -18,7 +18,7 @@ export default async function HomePage() {
       </Head>
 
       {/* 1️⃣ 顶部导航栏 */}
-      <header className="bg-white dark:bg-gray-800 shadow-md ">
+      <header className="bg-gray-100 dark:bg-gray-800 shadow-md ">
         <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center p-4 space-y-2 sm:space-y-0">
           <div className="flex items-center space-x-2">
             <Image src="/coding.png" alt="coding" width={50} height={50} className="w-10 h-10 sm:w-12 sm:h-12" />
@@ -61,7 +61,7 @@ export default async function HomePage() {
           {posts.map((post) => (
             <article
               key={post.slug}
-              className="bg-white dark:bg-gray-800 p-4 shadow rounded-lg relative"
+              className="bg-gray-200 dark:bg-gray-800 p-4 shadow rounded-lg relative"
             >
               <h5 className="text-sm sm:text-base break-words">{post.title}</h5>
               <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">{post.date}</p>
@@ -79,7 +79,7 @@ export default async function HomePage() {
         </div>
 
         {/* 侧边栏 */}
-        <aside className="defalutBgText dark:bg-gray-800 p-4 shadow rounded-lg">
+        <aside className="bg-gray-200 dark:bg-gray-800 p-4 shadow rounded-lg">
           <h6 className="text-lg sm:text-xl font-semibold">关于我</h6>
           <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm sm:text-base">
             一个看清楚现实跑路了的韭菜。
